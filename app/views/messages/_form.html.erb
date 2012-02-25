@@ -1,18 +1,10 @@
 
 <div class="clearfix">
-   <%= f.label :content, t("activerecord.attributes.message.content", :default => "Content"), :class => :label %>
   <div class="input">
-    <%= f.text_area :content, :class => 'text_area' %>
+    <%= f.text_area :content, :class => 'text_area span5', :rows => 5 %>
   </div>
+  <button class="btn btn-primary" type="submit">Save</button>
 </div>
 
-<div class="clearfix">
-   <%= f.label :tags, t("activerecord.attributes.message.tags", :default => "Tags"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :tags, :class => 'text_field' %>
-  </div>
-</div>
-<div class="form-actions">
-  <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", messages_path %>
-</div>
+
+

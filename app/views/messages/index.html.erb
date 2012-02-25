@@ -1,12 +1,19 @@
-<h1>Messages</h1>
+<h1>What's happening ?</h1>
+<br/>
+<%= form_for @message, :url => messages_path, :html => { :class => :form } do |f| -%>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>
+
+
+
 <table class="table table-striped">
  <thead>
   <tr>
     <th>ID</th>
-        <th>
+    <th>
       <%= t("activerecord.attributes.message.content", :default => t("activerecord.labels.content", :default => "Content")) %>
     </th>
-        <th>Created at</th>
+    <th>Created at</th>
     <th>Actions</th>
   </tr>
   </thead>
