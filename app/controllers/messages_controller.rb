@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
 
-    @messages = Message.all
+    @messages = Message.order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

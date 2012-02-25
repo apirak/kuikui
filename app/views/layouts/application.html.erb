@@ -42,7 +42,7 @@
     <div class="container">
       <div class="content">
         <div class="row">
-          <div class="span5">
+          <div class="span6">
             <% [:notice, :error, :alert].each do |level| %>
             <% unless flash[level].blank? %>
              <div data-alert="alert" class="alert alert-<%= flash_class(level) %> fade in">
@@ -54,7 +54,7 @@
             <%= yield %>
           </div>
           <div class="span1">&nbsp;</div>
-          <div class="span5">
+          <div class="span4">
             <div class="well sidebar-nav">
               <h3>Sidebar</h3>
                <ul class="nav nav-list">
