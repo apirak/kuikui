@@ -1,6 +1,4 @@
-<h1>Editing message</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @message %> |
-<%= link_to 'Back', messages_path %>
+<%= form_for @message, :url => message_path(@message), :html => { :class => "edit_message", :id => "edit_message" } do |f| -%>
+  <input name="_method" type="hidden" value="put" />
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>

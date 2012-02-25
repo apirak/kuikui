@@ -1,15 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @message.content %>
-</p>
+<label class="label"><%= t("activerecord.attributes.message.content", :default => t("activerecord.labels.content", :default => "Content")) %>:</label>
+<p><%= @message.content %></p>
 
-<p>
-  <b>Tags:</b>
-  <%= @message.tags %>
-</p>
+<label class="label"><%= t("activerecord.attributes.message.tags", :default => t("activerecord.labels.tags", :default => "Tags")) %>:</label>
+<p><%= @message.tags %></p>
 
-
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+<div class="form-actions">
+<%= link_to "Back", messages_path, :class => 'btn'  %>
+<%= link_to "Edit", edit_message_path(@message), :class => 'btn' %>
+<%= link_to "Delete", message_path(@message), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn' %>
+</div>
