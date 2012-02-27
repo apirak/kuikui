@@ -23,17 +23,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  # GET /messages/new
-  # GET /messages/new.json
-  def new
-    @message = Message.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @message }
-    end
-  end
-
   # GET /messages/1/edit
   def edit
     @message = Message.find(params[:id])
@@ -43,6 +32,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
+    @message.tags = @message.content.scan(/#[A-Za-z0-9_]+/)
 
     respond_to do |format|
       if @message.save

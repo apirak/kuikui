@@ -11,18 +11,28 @@
     </div>
     <div class="span5">
       <div class="row">
-        <div class="span2">
+        <div class="span4">
           <strong>@apirak</strong>
+          <%= time_ago_in_words(message.created_at) %>
         </div>
-        <div class="span3">
-          <em><%= time_ago_in_words(message.created_at) %></em>
-          <%= link_to "Show", message_path(message) %>
-          <%= link_to "Destroy", message_path(message), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <div class="span1">
+          <%= link_to raw("<i class='icon-pencil'></i>"), message_path(message) %>
+          <%= link_to raw("<i class='icon-trash'></i>"), message_path(message), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
         </div>
       </div>
       <div class="row">
-        <div class="span4">
+        <div class="span5">
           <%= link_to message.content, message_path(message) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span5">
+          <% unless message.tags.blank? %>
+            tag:
+            <% message.tags.each do |tag| -%>
+              <%= tag %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,4 +1,6 @@
 Kuikui::Application.routes.draw do
+  resources :comments
+
   resources :messages
 
   # The priority is based upon order of creation:
