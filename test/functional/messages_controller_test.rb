@@ -21,7 +21,7 @@ class MessagesControllerTest < ActionController::TestCase
       post :create, message: @message.attributes
     end
 
-    assert_redirected_to message_path(assigns(:message))
+    assert_redirected_to messages_path
   end
 
   test "should show message" do
