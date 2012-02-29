@@ -1,0 +1,23 @@
+<%= form_for(comment) do |f| %>
+  <%= f.number_field :message_id, :type => :hidden %>
+
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="clearfix">
+    <div class="input">
+      <%= f.text_area :content, :class => 'text_area span6', :rows => 5 %>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </div>
+
+<% end %>
