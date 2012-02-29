@@ -1,4 +1,27 @@
 <%= render :partial => "message", :locals => {:message => @message} %>
 
+<% @comments.each do |com| -%>
+  <div class="row comment">
+    <div class="span1 photo">
+      <%= image_tag "http://www.gravatar.com/avatar/ee8ea294c76022c5a6e163a05d255700.png" %>
+    </div>
+    <div class="span5">
+      <div class="row">
+        <div class="span4">
+          <strong>@apirak</strong>
+          <%= time_ago_in_words(com.created_at) %>
+        </div>
+        <div class="span1">
+          <%= link_to raw("<i class='icon-trash'></i>"), comment_path(com), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span5">
+          <%= com.content %>
+        </div>
+      </div>
+    </div>
+  </div>  
+<% end -%>
 
-<%= render :partial => "/comments/form", :lacals => {:comment => @comment} %>
+<%= render :partial => "/comments/form", :locals => {:comment => @comment} %>

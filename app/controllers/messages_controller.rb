@@ -15,9 +15,14 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
-    
+
+    # @comment = @message.comments.new
+    @comment = Comment.new
+    @comment.message_id = @message.id
+
     @comments = @message.comments
-    @comment = @message.comments.new
+    logger.debug(@comments.length)
+    logger.debug(@comments.length)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,12 +43,12 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        @message = Message.new
-        @messages = Message.all
         format.html { redirect_to messages_path, :notice => "Successfully created message" }
         format.json { render json: @message, status: :created, location: @message }
       else
-        format.html { render action: "new" }
+        @messages = Message.all
+        logger.debug(@message.errors[:content].join("; "))
+        format.html { redirect_to messages_path } 
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

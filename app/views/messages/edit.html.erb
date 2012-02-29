@@ -1,4 +1,1 @@
-<%= form_for @message, :url => message_path(@message), :html => { :class => "edit_message", :id => "edit_message" } do |f| -%>
-  <input name="_method" type="hidden" value="put" />
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+<%= render :partial => "form", :locals => {:message => @message} %>

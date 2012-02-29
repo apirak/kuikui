@@ -1,8 +1,7 @@
 <h1>What's happening ?</h1>
 <br/>
-<%= form_for @message, :url => messages_path, :html => { :class => :form } do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+
+<%= render :partial => "form", :locals => {:message => @message} %>
 
 <% @messages.each do |message| -%>
   <%= render :partial => "message", :locals => {:message => message} %>
