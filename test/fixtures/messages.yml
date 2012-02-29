@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  content: MyText
-  tags: MyString
+  content: "MyText #abc #123"
+  tags: 
 
 two:
-  content: MyText
-  tags: MyString
+  content: "MyText"
+  tags: 

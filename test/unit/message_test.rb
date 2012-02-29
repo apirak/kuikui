@@ -12,4 +12,12 @@ class MessageTest < ActiveSupport::TestCase
     message.content = "valid message"
     assert message.save
   end
+
+  test "Should create tag from content" do
+    message = Message.new
+    message.content = "Tag is #abc #123"
+    message.save
+    assert_equal message.tags.join(', '), "#abc, #123"
+  end
+
 end

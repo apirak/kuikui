@@ -3,7 +3,9 @@ require 'test_helper'
 class CommentsControllerTest < ActionController::TestCase
   setup do
     @message = messages(:one)
-    @comment = comments(:one)
+    @message.save
+    @comment = @message.comments.new
+    @comment.content = "abc"
   end
 
   test "should create comment" do
@@ -11,14 +13,15 @@ class CommentsControllerTest < ActionController::TestCase
       post :create, comment: @comment.attributes
     end
 
-    assert_redirected_to comment_path(assigns(:comment))
+    assert_redirected_to message_path(@comment.message)
   end
 
   test "should destroy comment" do
+    @comment.save
     assert_difference('Comment.count', -1) do
       delete :destroy, id: @comment
     end
 
-    assert_redirected_to comments_path
+    assert_redirected_to @comment.message
   end
 end

@@ -39,7 +39,6 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
-    @message.tags = @message.content.scan(/#[A-Za-z0-9_]+/)
 
     respond_to do |format|
       if @message.save
