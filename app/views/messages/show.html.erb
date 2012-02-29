@@ -1,5 +1,7 @@
 <%= render :partial => "message", :locals => {:message => @message} %>
 
+<h3>comment</h3>
+<p>
 <% @comments.each do |com| -%>
   <div class="row comment">
     <div class="span1 photo">
@@ -23,5 +25,5 @@
     </div>
   </div>  
 <% end -%>
-
+</p>
 <%= render :partial => "/comments/form", :locals => {:comment => @comment} %>
