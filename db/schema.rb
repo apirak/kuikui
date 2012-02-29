@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120227005233) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "massage_id"
+    t.integer  "message_id"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

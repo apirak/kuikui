@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @message = Message.new
-
     @messages = Message.order("created_at DESC")
 
     respond_to do |format|
@@ -16,6 +15,9 @@ class MessagesController < ApplicationController
   # GET /messages/1.json
   def show
     @message = Message.find(params[:id])
+    
+    @comments = @message.comments
+    @comment = @message.comments.new
 
     respond_to do |format|
       format.html # show.html.erb
