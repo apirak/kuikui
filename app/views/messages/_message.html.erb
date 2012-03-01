@@ -5,7 +5,9 @@
   <div class="span5">
     <div class="row">
       <div class="span4">
-        <strong>@apirak</strong>
+        <strong>
+          <%= message.user_name %>
+        </strong>
         <%= time_ago_in_words(message.created_at) %>
       </div>
       <div class="span1">

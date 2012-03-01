@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
   def create
     @message = Message.find(params[:comment][:message_id])
     @comment = @message.comments.new(params[:comment])
+    @comment.user_id = current_user.id    
 
     respond_to do |format|
       if @comment.save

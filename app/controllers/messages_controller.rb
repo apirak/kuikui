@@ -39,6 +39,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(params[:message])
+    @message.user_id = current_user.id
 
     respond_to do |format|
       if @message.save
@@ -56,7 +57,7 @@ class MessagesController < ApplicationController
   # PUT /messages/1
   # PUT /messages/1.json
   def update
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:id])    
 
     respond_to do |format|
       if @message.update_attributes(params[:message])
