@@ -2,6 +2,7 @@ require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @message = messages(:one)
   end
 
