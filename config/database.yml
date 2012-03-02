@@ -12,10 +12,13 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: pg_development
+  database: kuikui_development  
+  port: 5432
+  host: localhost  
   pool: 5
-  username: pg
-  password:
+  username: postgres
+  password: postgres
+  template: template0  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
